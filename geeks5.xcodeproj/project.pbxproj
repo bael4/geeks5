@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BE0970EA2A13CF7A00FCE712 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0970E92A13CF7A00FCE712 /* MainController.swift */; };
-		BE0970EC2A13CFDC00FCE712 /* MainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0970EB2A13CFDC00FCE712 /* MainModel.swift */; };
 		BE436D082A129248007082CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE436D072A129248007082CF /* AppDelegate.swift */; };
 		BE436D0A2A129248007082CF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE436D092A129248007082CF /* SceneDelegate.swift */; };
 		BE436D0C2A129248007082CF /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE436D0B2A129248007082CF /* MainView.swift */; };
@@ -23,8 +21,6 @@
 /* Begin PBXFileReference section */
 		35F8E0162F80EB7E42C79741 /* Pods-geeks5.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-geeks5.release.xcconfig"; path = "Target Support Files/Pods-geeks5/Pods-geeks5.release.xcconfig"; sourceTree = "<group>"; };
 		9BDEFC17D9459148AD4E037C /* Pods-geeks5.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-geeks5.debug.xcconfig"; path = "Target Support Files/Pods-geeks5/Pods-geeks5.debug.xcconfig"; sourceTree = "<group>"; };
-		BE0970E92A13CF7A00FCE712 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
-		BE0970EB2A13CFDC00FCE712 /* MainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModel.swift; sourceTree = "<group>"; };
 		BE436D042A129248007082CF /* geeks5.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = geeks5.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE436D072A129248007082CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BE436D092A129248007082CF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -121,8 +117,6 @@
 			isa = PBXGroup;
 			children = (
 				BE436D0B2A129248007082CF /* MainView.swift */,
-				BE0970E92A13CF7A00FCE712 /* MainController.swift */,
-				BE0970EB2A13CFDC00FCE712 /* MainModel.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -253,9 +247,7 @@
 				BE436D0C2A129248007082CF /* MainView.swift in Sources */,
 				BE436D082A129248007082CF /* AppDelegate.swift in Sources */,
 				BE436D222A1296A0007082CF /* ProductCell.swift in Sources */,
-				BE0970EC2A13CFDC00FCE712 /* MainModel.swift in Sources */,
 				BE436D1E2A129552007082CF /* NetworkService.swift in Sources */,
-				BE0970EA2A13CF7A00FCE712 /* MainController.swift in Sources */,
 				BE436D0A2A129248007082CF /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

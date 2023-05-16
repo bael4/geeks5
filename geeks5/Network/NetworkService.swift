@@ -30,45 +30,62 @@ enum Constans {
     }
 }
 
+//struct NetworkService {
+//
+//    let session = URLSession.shared
+//    let decoder = JSONDecoder()
+//
+//
+//    func fetchProducts(
+//        completion: @escaping (Result<[Product], Error>) -> Void )
+//    {
+//        let url = URL(string: "https://dummyjson.com/products")
+//
+//        let request = URLRequest(url: url!)
+//
+//        session.dataTask(with: request) { data, response, error in
+//            guard let data else {
+//                return
+//            }
+//            do {
+//                let data: ProductResponse = try decode(data: data)
+//                completion(
+//                    .success(
+//                        data.products
+//                    )
+//                )
+//            } catch {
+//                completion(
+//                    .failure(
+//                        error
+//                    )
+//                )
+//            }
+//
+//        }.resume()
+//    }
+//
+//    private func decode<T: Decodable>(data: Data) throws -> T {
+//      try  decoder.decode(
+//        T.self,
+//        from: data
+//      )
+//    }
+//}
 struct NetworkService {
-
     let session = URLSession.shared
     let decoder = JSONDecoder()
- 
 
-    func fetchProducts(
-        completion: @escaping (Result<[Product], Error>) -> Void )
-    {
-        let url = URL(string: "https://dummyjson.com/products")
+    func fetchProducts() async throws -> [Product] {
+        let url = URL(string: "https://dummyjson.com/products")!
 
-        let request = URLRequest(url: url!)
-        
-        session.dataTask(with: request) { data, response, error in
-            guard let data else {
-                return
-            }
-            do {
-                let data: ProductResponse = try decode(data: data)
-                completion(
-                    .success(
-                        data.products
-                    )
-                )
-            } catch {
-                completion(
-                    .failure(
-                        error
-                    )
-                )
-            }
-
-        }.resume()
+        let (data, _) = try await URLSession.shared.data(from: url)
+        let productsResponse = try decode(data: data, type: ProductResponse.self)
+        return productsResponse.products
     }
-    
-    private func decode<T: Decodable>(data: Data) throws -> T {
-      try  decoder.decode(
-        T.self,
-        from: data
-      )
+
+    private func decode<T: Decodable>(data: Data, type: T.Type) throws -> T {
+        let decoder = JSONDecoder()
+        return try decoder.decode(type, from: data)
     }
 }
