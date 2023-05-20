@@ -9,8 +9,9 @@ import Foundation
 import UIKit
 import Kingfisher
 
-
 class ProductCell: UITableViewCell {
+    
+    static let reuseId = String(describing: ProductCell.self)
     
     private lazy var mainView = UIView()
     
@@ -20,13 +21,13 @@ class ProductCell: UITableViewCell {
         return view
     }()
     
-    private  lazy var  productTitle: UILabel = {
+    private lazy var productTitle: UILabel = {
         let label = UILabel()
         label.textColor = .red
         return label
     }()
     
-    private  lazy var productDescription: UILabel = {
+    private lazy var productDescription: UILabel = {
         let label = UILabel()
         label.textColor = .blue
         label.numberOfLines = 0
@@ -40,10 +41,14 @@ class ProductCell: UITableViewCell {
         return label
     }()
     
-  
-    
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    override init(
+        style: UITableViewCell.CellStyle,
+        reuseIdentifier: String?
+    ){
+        super.init(
+            style: style,
+            reuseIdentifier: reuseIdentifier
+        )
         setupSubViews()
     }
     
@@ -53,11 +58,11 @@ class ProductCell: UITableViewCell {
     
     private func setupSubViews() {
         self.addSubview( mainView)
-        
-        [productImage,productTitle,productDescription,productPrice].forEach { box in
-            mainView.addSubview(box)
-            }
-        
+       
+        mainView.addSubview(productImage)
+        mainView.addSubview(productTitle)
+        mainView.addSubview(productDescription)
+        mainView.addSubview(productPrice)
         
         mainView.snp.makeConstraints { make in
             make.leading.trailing.top.bottom.equalToSuperview().inset(0)
@@ -76,15 +81,14 @@ class ProductCell: UITableViewCell {
         }
         
         productDescription.snp.makeConstraints { make in
-            make.top.equalTo(  productTitle.snp.bottom).offset(5)
+            make.top.equalTo(productTitle.snp.bottom).offset(5)
             make.leading.equalToSuperview().offset(5)
         }
         
         productPrice.snp.makeConstraints { make in
-            make.top.equalTo( productDescription.snp.bottom).offset(5)
+            make.top.equalTo(productDescription.snp.bottom).offset(5)
             make.leading.equalToSuperview().offset(5)
         }
-        
     }
     
     func fill(product: Product) {
@@ -93,5 +97,4 @@ class ProductCell: UITableViewCell {
         productDescription.text = product.description
         productPrice.text = "\(product.price)"
     }
-    
 }
